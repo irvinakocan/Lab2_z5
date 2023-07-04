@@ -45,8 +45,18 @@ namespace Lab2_z5
             return iste;
         }
 
+        static string[] ProcistiNiz(string[] s)
+        {
+            for (int i = 0; i < s.Length - 1; i++)
+                for (int j = i + 1; j < s.Length; j++)
+                    if (DaLiSuIsteRijeci(s[i], s[j]))
+                        s[j] = "";
+
+            return s;
+        }
+
         static void Main(string[] args)
-        {/*
+        {
             Console.Write("Unesite broj rijeci: ");
             string ulaz = Console.ReadLine();
             int n = Int32.Parse(ulaz);
@@ -59,14 +69,17 @@ namespace Lab2_z5
                 rijeci[i] = Console.ReadLine();
             }
 
-            Console.Write("\nPrva i posljednja rijec iz spiska po abecednom poretku: " +
+
+            Console.WriteLine("\nPrva i posljednja rijec iz spiska po abecednom poretku: " +
                 "\n {0} \n {1}",
                 SortirajRijec(rijeci[0]), SortirajRijec(rijeci[n - 1]));
-            */
 
 
-            Console.WriteLine(DaLiSuIsteRijeci("msma", "mAma"));
-
+            Console.WriteLine("\nPopis svih unesenih riječi, bez duplikata:");
+            var procisceneRijeci = ProcistiNiz(rijeci);
+            for (int i = 0; i < procisceneRijeci.Length; i++)
+                if (procisceneRijeci[i] != "")
+                    Console.Write("{0} ", procisceneRijeci[i]);
         } 
     }
 }
