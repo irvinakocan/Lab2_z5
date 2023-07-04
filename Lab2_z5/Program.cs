@@ -29,20 +29,44 @@ namespace Lab2_z5
             return string.Concat(slova);
         }
 
-        static void Main(string[] args)
+        static bool DaLiSuIsteRijeci(string s1, string s2)
         {
+            if (s1.Length != s2.Length)
+                return false;
+
+            bool iste = true;
+
+            for (int i = 0; i < s1.Length; i++)
+            {
+                if (char.ToLower(s1[i]) != char.ToLower(s2[i]))
+                    iste = false;
+            }
+
+            return iste;
+        }
+
+        static void Main(string[] args)
+        {/*
             Console.Write("Unesite broj rijeci: ");
             string ulaz = Console.ReadLine();
             int n = Int32.Parse(ulaz);
 
-            Console.WriteLine("Unesite rijeci: ");
+            Console.WriteLine("\nUnesite rijeci: ");
             string[] rijeci = new string[n];
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 Console.Write("{0}: ", i + 1);
                 rijeci[i] = Console.ReadLine();
             }
 
-        }
+            Console.Write("\nPrva i posljednja rijec iz spiska po abecednom poretku: " +
+                "\n {0} \n {1}",
+                SortirajRijec(rijeci[0]), SortirajRijec(rijeci[n - 1]));
+            */
+
+
+            Console.WriteLine(DaLiSuIsteRijeci("msma", "mAma"));
+
+        } 
     }
 }
